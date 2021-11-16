@@ -126,7 +126,7 @@ class Device(models.Model):
 
             device_cls = apps.get_model(app_label, model_name)
             if issubclass(device_cls, Device):
-                device_set = device_cls.objects.filter(id=int(device_id))
+                device_set = device_cls.objects.filter(id=device_id)
                 if for_verify:
                     device_set = device_set.select_for_update()
                 device = device_set.first()
